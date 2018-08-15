@@ -1,7 +1,8 @@
-package yisuk.kim.githubtrending
+package yisuk.kim.githubtrending.home
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import yisuk.kim.githubtrending.R
 
 class HomeActivity : AppCompatActivity() {
 
