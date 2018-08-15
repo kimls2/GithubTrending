@@ -21,7 +21,8 @@ class ReposController(
             data.forEach { item ->
                 repo {
                     id(item.id)
-                    name(item.name)
+                    repo(item)
+                    starCount(item.starCount.toString())
                     clickListener(View.OnClickListener { callbacks.onItemClicked(item) })
                 }
             }

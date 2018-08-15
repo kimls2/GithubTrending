@@ -20,6 +20,8 @@ interface GithubApi {
 
     data class RepoItem(
             val id: Int,
-            val full_name: String
+            val full_name: String,
+            val description: String,
+            val stargazers_count: Int
     )
 }

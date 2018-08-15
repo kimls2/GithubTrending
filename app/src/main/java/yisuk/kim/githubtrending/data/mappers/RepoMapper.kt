@@ -14,7 +14,9 @@ class RepoMapper @Inject constructor() : Mapper<GithubApi.RepoItem, GithubRepo> 
     override fun map(from: GithubApi.RepoItem): GithubRepo {
         return GithubRepo(
                 id = from.id,
-                name = from.full_name
+                name = from.full_name,
+                description = from.description,
+                starCount = from.stargazers_count
         )
     }
 }

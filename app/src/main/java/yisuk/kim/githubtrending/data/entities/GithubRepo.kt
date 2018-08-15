@@ -16,5 +16,7 @@ import android.arch.persistence.room.PrimaryKey
 )
 data class GithubRepo(
         @PrimaryKey(autoGenerate = false) @ColumnInfo(name = "githubId") var id: Int,
-        @ColumnInfo(name = "name") val name: String
+        @ColumnInfo(name = "name") val name: String,
+        @ColumnInfo(name = "description") val description: String,
+        @ColumnInfo(name = "starCount") val starCount: Int
 )

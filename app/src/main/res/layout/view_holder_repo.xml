@@ -10,16 +10,16 @@
         <import type="android.view.View" />
 
         <variable
-            name="name"
-            type="String" />
-
-        <variable
-            name="loginId"
-            type="String" />
-
-        <variable
             name="clickListener"
             type="android.view.View.OnClickListener" />
+
+        <variable
+            name="repo"
+            type="yisuk.kim.githubtrending.data.entities.GithubRepo" />
+
+        <variable
+            name="starCount"
+            type="String"/>
 
     </data>
 
@@ -36,32 +36,47 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:paddingBottom="5dp"
-            android:text="@{name}"
+            android:text="@{repo.name}"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Repos Name" />
 
+
+        <TextView
+            android:id="@+id/tv_repo_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:text="@{repo.description}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_repo_name"
+            tools:text="Organized Resources for Deep Learning Researchers and Developers" />
+
+
         <TextView
             android:id="@+id/tv_star_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawablePadding="5dp"
+            android:drawableStart="@drawable/ic_baseline_star_border_24px"
             android:gravity="center_vertical"
+            android:text="@{starCount}"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_repo_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_repo_desc"
             tools:text="102" />
 
         <TextView
             android:id="@+id/tv_updated_at"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="20dp"
             android:drawablePadding="5dp"
+            android:drawableStart="@drawable/ic_baseline_access_time_24px"
             android:gravity="center_vertical"
             app:layout_constraintStart_toEndOf="@+id/tv_star_count"
-            app:layout_constraintTop_toBottomOf="@+id/tv_repo_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_repo_desc"
             tools:text="6 days ago" />
 
 
