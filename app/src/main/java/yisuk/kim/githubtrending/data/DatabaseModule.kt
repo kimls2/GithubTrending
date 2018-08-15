@@ -1,11 +1,11 @@
-package yisuk.kim.githubtrending.database
+package yisuk.kim.githubtrending.data
 
 import android.arch.persistence.room.Room
 import android.content.Context
 import android.os.Debug
 import dagger.Module
 import dagger.Provides
-import yisuk.kim.githubtrending.database.daos.GithubRepoDao
+import yisuk.kim.githubtrending.data.daos.GithubRepoDao
 import javax.inject.Singleton
 
 /**

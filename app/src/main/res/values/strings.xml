@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GithubTrending</string>
+
+    <string name="repos_title">Trending Android Repositories</string>
 </resources>

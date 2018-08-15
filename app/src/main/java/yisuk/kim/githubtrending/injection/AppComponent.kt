@@ -4,6 +4,8 @@ import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 import yisuk.kim.githubtrending.TrendingApp
+import yisuk.kim.githubtrending.data.repositories.repo.RepoModule
+import yisuk.kim.githubtrending.home.HomeBuilder
 import javax.inject.Singleton
 
 /**
@@ -12,7 +14,10 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [
     AndroidSupportInjectionModule::class,
-    AppModule::class
+    AppModule::class,
+    ViewModelBuilder::class,
+    RepoModule::class,
+    HomeBuilder::class
 ])
 interface AppComponent : AndroidInjector<TrendingApp> {
     @Component.Builder

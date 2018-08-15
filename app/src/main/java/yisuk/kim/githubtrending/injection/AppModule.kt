@@ -1,6 +1,5 @@
 package yisuk.kim.githubtrending.injection
 
-import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
@@ -10,7 +9,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import yisuk.kim.githubtrending.TrendingApp
 import yisuk.kim.githubtrending.commons.AppRxSchedulers
-import yisuk.kim.githubtrending.database.DatabaseModule
+import yisuk.kim.githubtrending.data.DatabaseModule
 import yisuk.kim.githubtrending.network.NetworkModule
 import java.io.File
 import javax.inject.Named
@@ -32,14 +31,14 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideAppPreferences(application: Application): SharedPreferences {
+    fun provideAppPreferences(application: TrendingApp): SharedPreferences {
         return PreferenceManager.getDefaultSharedPreferences(application)
     }
 
     @Provides
     @Singleton
     @Named("cache")
-    fun provideCacheDir(application: Application): File {
+    fun provideCacheDir(application: TrendingApp): File {
         return application.cacheDir
     }
 

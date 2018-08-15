@@ -20,7 +20,7 @@ import javax.inject.Singleton
 class NetworkModule {
 
     companion object {
-        private const val BASE_URL = ""
+        private const val BASE_URL = "https://api.github.com/"
         private const val DISK_CACHE_SIZE = (10 * 1024 * 1024).toLong()
         private const val READ_TIME_OUT = 15.toLong()
         private const val CONNECT_TIME_OUT = 30.toLong()
@@ -32,7 +32,7 @@ class NetworkModule {
         val builder = OkHttpClient().newBuilder()
         builder.apply {
             if (BuildConfig.DEBUG) {
-                addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+                addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC))
                 addNetworkInterceptor(StethoInterceptor())
             }
             readTimeout(READ_TIME_OUT, TimeUnit.SECONDS)
@@ -51,6 +51,11 @@ class NetworkModule {
                 .client(client)
                 .baseUrl(BASE_URL)
                 .build()
+    }
 
+    @Provides
+    @Singleton
+    fun provideGithubApi(retrofit: Retrofit): GithubApi {
+        return retrofit.create(GithubApi::class.java)
     }
 }

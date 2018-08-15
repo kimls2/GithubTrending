@@ -1,4 +1,4 @@
-package yisuk.kim.githubtrending.database.entities
+package yisuk.kim.githubtrending.data.entities
 
 import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
@@ -15,7 +15,6 @@ import android.arch.persistence.room.PrimaryKey
         ]
 )
 data class GithubRepo(
-        @PrimaryKey(autoGenerate = true) var id: Long? = null,
-        @ColumnInfo(name = "githubId") val githubId: Int,
+        @PrimaryKey(autoGenerate = false) @ColumnInfo(name = "githubId") var id: Int,
         @ColumnInfo(name = "name") val name: String
 )
