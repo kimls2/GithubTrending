@@ -35,6 +35,17 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    dataBinding {
+        enabled = true
+    }
+
+    packagingOptions {
+        exclude 'kotlin/**'
+        exclude '**/*.kotlin_metadata'
+        exclude 'META-INF/*.kotlin_module'
+        exclude 'META-INF/*.version'
+    }
 }
 
 dependencies {
@@ -48,6 +59,7 @@ dependencies {
     implementation 'com.facebook.stetho:stetho:1.5.0'
     implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
     // dagger2
+    implementation 'org.glassfish:javax.annotation:10.0-b28'
     implementation "com.google.dagger:dagger-android:${versions.dagger}"
     implementation "com.google.dagger:dagger-android-support:${versions.dagger}"
     kapt "com.google.dagger:dagger-compiler:${versions.dagger}"
@@ -70,6 +82,16 @@ dependencies {
     implementation "android.arch.persistence.room:runtime:${versions.room}"
     implementation "android.arch.persistence.room:rxjava2:${versions.room}"
     kapt "android.arch.persistence.room:compiler:${versions.room}"
+    // archLifeCycle
+    implementation "android.arch.lifecycle:extensions:${versions.archLifeCycle}"
+    implementation "android.arch.lifecycle:reactivestreams:${versions.archLifeCycle}"
+    kapt "android.arch.lifecycle:compiler:${versions.archLifeCycle}"
+    // epoxy
+    implementation "com.airbnb.android:epoxy:${versions.epoxy}"
+    implementation "com.airbnb.android:epoxy-databinding:${versions.epoxy}"
+    kapt "com.airbnb.android:epoxy-processor:${versions.epoxy}"
+
+    kapt 'com.android.databinding:compiler:3.1.4'
 
     // unit test
     testImplementation 'junit:junit:4.12'

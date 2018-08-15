@@ -12,6 +12,8 @@ buildscript {
             'okHttp'           : '3.11.0',
             'stetho'           : '1.5.0',
             'room'             : '1.1.1',
+            'archLifeCycle'    : '1.1.1',
+            'epoxy'            : '2.15.1',
             'espresso'         : '3.0.1'
     ]
     repositories {
@@ -28,6 +30,12 @@ allprojects {
     repositories {
         google()
         jcenter()
+    }
+
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
     }
 }
 
