@@ -13,22 +13,25 @@ import yisuk.kim.githubtrending.commons.BaseFragment
 import yisuk.kim.githubtrending.commons.Status
 import yisuk.kim.githubtrending.commons.observeK
 import yisuk.kim.githubtrending.data.entities.GithubRepo
+import yisuk.kim.githubtrending.home.HomeNavigator
+import yisuk.kim.githubtrending.home.HomeViewModel
 
 /**
  * @author <a href="yisuk@mobilabsolutions.com">Yisuk Kim</a> on 15-08-2018.
  */
 class ReposFragment : BaseFragment<ReposViewModel>() {
 
+    private lateinit var homeNavigator: HomeNavigator
     private val reposController = ReposController(object : ReposController.Callbacks {
         override fun onItemClicked(item: GithubRepo) {
-
+            homeNavigator.showDetail(item.id)
         }
     })
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(ReposViewModel::class.java)
+        homeNavigator = ViewModelProviders.of(activity!!, viewModelFactory).get(HomeViewModel::class.java)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
