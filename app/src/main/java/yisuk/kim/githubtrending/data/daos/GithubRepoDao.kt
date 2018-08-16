@@ -5,6 +5,7 @@ import android.arch.persistence.room.Insert
 import android.arch.persistence.room.OnConflictStrategy
 import android.arch.persistence.room.Query
 import io.reactivex.Flowable
+import io.reactivex.Single
 import yisuk.kim.githubtrending.data.entities.GithubRepo
 
 /**
@@ -17,5 +18,8 @@ abstract class GithubRepoDao {
 
     @Query("SELECT * from github_repo")
     abstract fun getRepos(): Flowable<List<GithubRepo>>
+
+    @Query("SELECT * from github_repo WHERE githubId = :id")
+    abstract fun getRepoWithId(id: Int): Single<GithubRepo>
 
 }
