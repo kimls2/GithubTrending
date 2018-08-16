@@ -1,6 +1,7 @@
 package yisuk.kim.githubtrending.data.repositories.repo
 
 import io.reactivex.Flowable
+import io.reactivex.Single
 import yisuk.kim.githubtrending.data.entities.GithubRepo
 
 /**
@@ -9,4 +10,6 @@ import yisuk.kim.githubtrending.data.entities.GithubRepo
 interface RepoRepository {
 
     fun getRepos(): Flowable<List<GithubRepo>>
+
+    fun getRepo(id: Int): Single<GithubRepo>
 }
