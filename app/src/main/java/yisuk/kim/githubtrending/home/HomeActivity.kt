@@ -37,7 +37,7 @@ class HomeActivity : DaggerAppCompatActivity() {
         id?.let {
             supportFragmentManager
                     .beginTransaction()
-                    .replace(home_content.id, DetailFragment())
+                    .replace(home_content.id, DetailFragment.create(it))
                     .addToBackStack("detail fragment")
                     .commit()
         }

@@ -21,5 +21,5 @@ data class GithubRepo(
         @ColumnInfo(name = "htmlUrl") val htmlUrl: String,
         @ColumnInfo(name = "starCount") val starCount: Int,
         @ColumnInfo(name = "login") val login: String,
-        @ColumnInfo(name = "avatarUrl") val avatarUrl: String
+        @ColumnInfo(name = "avatarUrl") val avatarUrl: String?
 )

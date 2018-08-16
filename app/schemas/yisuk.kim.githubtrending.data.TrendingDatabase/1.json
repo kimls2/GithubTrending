@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "4edab7f09af3495e61aebb372eb7c9ee",
+    "identityHash": "fbc29bc4d9d13331e6764460058b53a8",
     "entities": [
       {
         "tableName": "github_repo",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`githubId` INTEGER NOT NULL, `name` TEXT NOT NULL, `description` TEXT NOT NULL, `htmlUrl` TEXT NOT NULL, `starCount` INTEGER NOT NULL, `login` TEXT NOT NULL, `avatarUrl` TEXT NOT NULL, PRIMARY KEY(`githubId`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`githubId` INTEGER NOT NULL, `name` TEXT NOT NULL, `description` TEXT NOT NULL, `htmlUrl` TEXT NOT NULL, `starCount` INTEGER NOT NULL, `login` TEXT NOT NULL, `avatarUrl` TEXT, PRIMARY KEY(`githubId`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -48,7 +48,7 @@
             "fieldPath": "avatarUrl",
             "columnName": "avatarUrl",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -72,7 +72,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"4edab7f09af3495e61aebb372eb7c9ee\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"fbc29bc4d9d13331e6764460058b53a8\")"
     ]
   }
 }
