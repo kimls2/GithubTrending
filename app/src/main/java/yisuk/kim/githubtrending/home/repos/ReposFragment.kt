@@ -32,6 +32,7 @@ class ReposFragment : BaseFragment<ReposViewModel>() {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(ReposViewModel::class.java)
         homeNavigator = ViewModelProviders.of(activity!!, viewModelFactory).get(HomeViewModel::class.java)
+        viewModel.refresh()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

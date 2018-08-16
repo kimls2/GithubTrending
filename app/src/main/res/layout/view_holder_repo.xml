@@ -24,7 +24,7 @@
     </data>
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/view_user_item"
+        android:id="@+id/view_repo_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:foreground="?android:attr/selectableItemBackground"
