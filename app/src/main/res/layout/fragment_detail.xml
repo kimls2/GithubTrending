@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:navigationIcon="?attr/homeAsUpIndicator"
-                app:title="@string/repos_title" />
+                app:title="@string/detail_title" />
         </android.support.design.widget.AppBarLayout>
 
         <ImageView
