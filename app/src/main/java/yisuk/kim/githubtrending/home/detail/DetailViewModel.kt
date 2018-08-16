@@ -27,10 +27,6 @@ class DetailViewModel @Inject constructor(
 
     private fun getDetail(id: Int) {
         disposables += repoRepository.getRepo(id)
-                .subscribe(this::onSuccess, this::onError)
-    }
-
-    private fun onSuccess(repo: GithubRepo) {
-        _repo.value = repo
+                .subscribe(_repo::setValue, this::onError)
     }
 }

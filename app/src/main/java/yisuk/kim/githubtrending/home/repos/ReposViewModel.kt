@@ -25,10 +25,6 @@ class ReposViewModel @Inject constructor(
         disposables += repoRepository.getRepos()
                 .doOnSubscribe { sendMessage(State(Status.REFRESHING)) }
                 .doOnNext { sendMessage(State(Status.SUCCESS)) }
-                .subscribe(this::onSuccess, this::onError)
-    }
-
-    private fun onSuccess(repos: List<GithubRepo>) {
-        _repos.value = repos
+                .subscribe(_repos::setValue, this::onError)
     }
 }
