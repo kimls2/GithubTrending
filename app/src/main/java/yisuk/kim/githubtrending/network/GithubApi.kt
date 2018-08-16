@@ -9,6 +9,8 @@ import yisuk.kim.githubtrending.network.dto.RepoItem
  * @author <a href="yisuk@mobilabsolutions.com">Yisuk Kim</a> on 15-08-2018.
  */
 interface GithubApi {
+
+    // This call is not actually TRENDING repositories. Because the search is queried by "android".
     @GET("search/repositories")
     fun getTrendingRepos(
             @Query("q") query: String = "android",
